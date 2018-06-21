@@ -6,6 +6,8 @@ const discoverMovie = require('./discoverMovie.js');
 const app = express();
 app.use(bodyParser.json());
 
+const port=process.env.PORT|| 3000;
+
 // Recast will send a post request to /errors to notify important errors
 // described in a json body
 app.post('/errors', (req, res) => {
@@ -42,7 +44,7 @@ app.post('/discover-movies', (req, res) => {
       .catch((err) => console.error('movieApi::discoverMovie error: ', err));
   });
 
-app.listen(config.PORT, () => console.log(`App started on port ${config.PORT}`));
+app.listen(port, () => console.log(`App started on port ${port}`));
 
 const movieGenres = [
   { id: 12, name: 'Adventure' },
