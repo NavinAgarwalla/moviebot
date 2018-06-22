@@ -27,7 +27,7 @@ app.post('/discover-movies', (req, res) => {
     const kind = movie ? 'movie' : 'tv';
 
     const genre = memory.genre;
-    const genreId = constants.getGenreId(genre.value);
+    const genreId = getGenreId(genre.value);
 
     const language = memory.language;
     const nationality = memory.nationality;
