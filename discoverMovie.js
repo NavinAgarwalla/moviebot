@@ -10,7 +10,8 @@ function discoverMovie(kind, genreId, language) {
       with_genres: genreId,
       with_original_language: language,
     },
-  }).then(({results}) => {
+  }).then(({data}) => {
+    let results = data.results;
     if (results.length === 0) {
       return [{
         type: 'quickReplies',
@@ -42,5 +43,7 @@ function discoverMovie(kind, genreId, language) {
     ];
   });
 }
+
+discoverMovie("movie",878,"en");
 
 module.exports = discoverMovie;
