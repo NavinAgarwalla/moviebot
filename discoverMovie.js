@@ -10,7 +10,7 @@ function discoverMovie(kind, genreId, language) {
       with_genres: genreId,
       with_original_language: language,
     },
-  }).then(results => {
+  }).then(({results}) => {
     if (results.length === 0) {
       return [{
         type: 'quickReplies',
@@ -20,7 +20,6 @@ function discoverMovie(kind, genreId, language) {
         },
       }];
     }
-
     const cards = results.slice(0, 10).map(movie => ({
       title: movie.title || movie.name,
       subtitle: movie.overview,
